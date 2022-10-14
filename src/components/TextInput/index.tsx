@@ -1,42 +1,64 @@
-import React, { ReactNode } from "react";
-import { TextInputProps, TextProps } from "react-native";
+import React, { ReactNode, useEffect } from "react";
+import { TextInputProps, ViewProps } from "react-native";
 
 import * as S from './styles';
 
-interface ITextInputRootProps {
-  children: ReactNode;
+interface ITextInputRootProps extends ViewProps {
   label?: string;
 }
 
 function TextInputRoot(props: ITextInputRootProps) {
+
+  useEffect(() => {
+    //
+  }, []);
+
   return (
-    <S.Container>
-      {props.label && <S.Label>{props.label}</S.Label>}
-      <S.Root>
-        {props.children}
-      </S.Root>
-    </S.Container>
+    <S.Root>
+      {props.children}
+    </S.Root>
   );
 }
 
-function TextInputContainer(props: ITextInputRootProps) {
+interface ITextInput extends ViewProps {
+  label?: string;
+}
+
+interface ITextInputContentProps extends ITextInput { }
+
+function TextInputContent(props: ITextInputContentProps) {
   return (
     <S.Container>
       {props.label && <S.Label>{props.label}</S.Label>}
-      <S.Content>
+      <S.Content {...props}>
         {props.children}
       </S.Content>
     </S.Container>
   );
 }
 
-function TextInputOutline(props: ITextInputRootProps) {
+interface ITextInputOutLinedProps extends ITextInput { }
+
+function TextInputOutLined(props: ITextInputOutLinedProps) {
   return (
     <S.Container>
       {props.label && <S.Label>{props.label}</S.Label>}
-      <S.Outline>
+      <S.OutLined>
         {props.children}
-      </S.Outline>
+      </S.OutLined>
+    </S.Container>
+  );
+}
+
+interface ITextInputRoundedProps extends ITextInput { }
+
+function TextInputRounded(props: ITextInputRoundedProps) {
+  return (
+    <S.Container>
+      {props.label && <S.Label>{props.label}</S.Label>}
+      <S.Rounded>
+        {props.children}
+      </S.Rounded>
     </S.Container>
   );
 }
@@ -49,9 +71,17 @@ function TextInputInput(props: ITextInputInputProps) {
   );
 }
 
+function TextInputIcon() {
+  return (
+    <S.Icon />
+  );
+}
+
 export const TextInput = {
   Root: TextInputRoot,
-  Container: TextInputContainer,
-  Outline: TextInputOutline,
+  Content: TextInputContent,
+  OutLined: TextInputOutLined,
+  Rounded: TextInputRounded,
   Input: TextInputInput,
+  Icon: TextInputIcon
 }

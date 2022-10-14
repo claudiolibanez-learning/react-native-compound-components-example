@@ -1,19 +1,19 @@
 import styled from "styled-components/native";
 
+export const Root = styled.View`
+  width: 100%;
+`;
+
 export const Container = styled.View`
   width: 100%;
 `;
 
-export const Root = styled.View`
+export const Content = styled.View`
   width: 100%;
 
   flex-direction: row;
 
   background-color: #fff;
-
-  /* border-radius: 5px;
-  border-width: 1px;
-  border-color: #c9c9c9; */
 
   border-bottom-width: 1px;
   border-bottom-color: #c9c9c9;
@@ -21,7 +21,7 @@ export const Root = styled.View`
   margin-top: 4px;
 `;
 
-export const Content = styled.View`
+export const OutLined = styled.View`
   width: 100%;
 
   flex-direction: row;
@@ -35,7 +35,7 @@ export const Content = styled.View`
   margin-top: 4px;
 `;
 
-export const Outline = styled.View`
+export const Rounded = styled.View`
   width: 100%;
 
   flex-direction: row;
@@ -51,6 +51,14 @@ export const Outline = styled.View`
 
 export const Input = styled.TextInput`
   flex: 1;
+  padding: 10px 8px;
 `;
 
 export const Label = styled.Text``;
+
+export const Icon = styled.View`
+  width: 48px;
+  height: 100%;
+
+  background-color: gray;
+`;

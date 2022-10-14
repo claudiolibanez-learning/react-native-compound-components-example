@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import { TextInput } from "./src/components/TextInput";
 
@@ -11,13 +11,16 @@ export default function App() {
       alignItems: 'center',
       paddingHorizontal: 20
     }}>
-      <TextInput.Container
-        label="E-mail"
-      >
-        <TextInput.Input
-          placeholder="Digite seu e-mail"
-        />
-      </TextInput.Container>
+      <TextInput.Root>
+        <TextInput.OutLined
+          label="E-mail"
+        >
+          <TextInput.Icon />
+          <TextInput.Input
+            placeholder="Digite seu e-mail"
+          />
+        </TextInput.OutLined>
+      </TextInput.Root>
     </View>
   );
 }
